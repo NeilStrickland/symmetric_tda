@@ -1,0 +1,4 @@
+docs at https://docs.hpc.shef.ac.uk/
+
+Switch to worker node
+srun --pty bash -i

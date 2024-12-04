@@ -22,9 +22,13 @@ class Space:
     def poincare_polynomial(self):
         raise NotImplementedError()
 
-    def fit(self, sample_size, num_samples = 1):
+    def fit(self, sample_size, num_samples = 1, homology_dimensions = None):
         x = self.sample(sample_size, num_samples)
-        VR = gtda.homology.VietorisRipsPersistence(homology_dimensions=list(range(self.dim+2)))
+        if homology_dimensions is None:
+            homology_dimensions = list(range(self.dim+2))
+        self.homology_dimensions = homology_dimensions
+        VR = gtda.homology.VietorisRipsPersistence(homology_dimensions=homology_dimensions)
+        self.VR = VR
         self.diagrams = VR.fit_transform(x)
         return self.diagrams
     
