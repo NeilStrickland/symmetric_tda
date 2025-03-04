@@ -2,3 +2,11 @@ docs at https://docs.hpc.shef.ac.uk/
 
 Switch to worker node
 srun --pty bash -i
+
+To get a new Python:
+module load Anaconda3/2019.07
+srun --pty bash -i
+
+Now /usr/local/packages/live/eb/Anaconda3/2019.07 exists and is in the PATH and contains python 3.7
+
+Also pip will work and install packages in ./.local/lib/python3.7/site-packages
